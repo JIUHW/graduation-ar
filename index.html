@@ -26,7 +26,6 @@ body { margin:0; overflow:hidden; }
 
 <body>
 
-<button id="startButton">ARを開始</button>
 
 <a-scene
  xr-mode-ui="enabled: true"
@@ -46,12 +45,15 @@ body { margin:0; overflow:hidden; }
 </a-box>
 
 </a-scene>
-
 <script>
-document.getElementById("startButton").onclick = () => {
- document.querySelector("a-scene").enterVR();
+window.onload = () => {
+ setTimeout(() => {
+   const scene = document.querySelector("a-scene");
+   if(scene.enterVR){
+     scene.enterVR();
+   }
+ }, 1000);
 };
 </script>
-
 </body>
 </html>
