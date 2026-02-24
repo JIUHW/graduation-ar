@@ -2,17 +2,20 @@
 <html lang="ja">
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+
+<script type="module"
+src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js">
+</script>
 
 <style>
 body{
- margin:0;
- background:black;
+  margin:0;
+  background:black;
 }
 
 model-viewer{
- width:100vw;
- height:100vh;
+  width:100vw;
+  height:100vh;
 }
 </style>
 </head>
@@ -20,11 +23,15 @@ model-viewer{
 <body>
 
 <model-viewer
- src="kanban.glb"
- ar
- ar-modes="webxr scene-viewer quick-look"
- camera-controls
- auto-rotate
+  src="kanban.glb"
+  ar
+  ar-placement="floor"
+  ar-modes="webxr scene-viewer quick-look"
+  camera-controls
+  environment-image="neutral"
+  exposure="1"
+  shadow-intensity="1"
+  auto-rotate
 >
 </model-viewer>
 
