@@ -11,29 +11,60 @@ src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js">
 body{
   margin:0;
   background:black;
+  overflow:hidden;
 }
 
+/* AR画面 */
 model-viewer{
   width:100vw;
   height:100vh;
+  display:none;
+}
+
+/* 開始ボタン */
+#start{
+  position:fixed;
+  width:100%;
+  height:100%;
+  background:black;
+  color:white;
+  font-size:28px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:10;
 }
 </style>
 </head>
 
 <body>
 
+<div id="start" onclick="startAR()">
+📸 画面をタップして<br>AR撮影を開始
+</div>
+
 <model-viewer
-  src="kanban.glb"
-  ar
-  ar-placement="floor"
-  ar-modes="webxr scene-viewer quick-look"
-  camera-controls
-  environment-image="neutral"
-  exposure="1"
-  shadow-intensity="1"
-  auto-rotate
+ id="arview"
+ src="kanban.glb"
+ ar
+ ar-placement="floor"
+ ar-modes="webxr scene-viewer quick-look"
+ camera-controls
 >
 </model-viewer>
+
+<script>
+function startAR(){
+
+  document.getElementById("start").style.display="none";
+
+  const viewer=document.getElementById("arview");
+  viewer.style.display="block";
+
+  /* AR起動 */
+  viewer.activateAR();
+}
+</script>
 
 </body>
 </html>
